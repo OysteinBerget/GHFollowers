@@ -72,23 +72,55 @@
 		A020805B23C5CBA30073CA13 /* GHFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				A020808223C631BD0073CA13 /* Screens */,
+				A020808323C631DC0073CA13 /* Custom Views */,
+				A020808423C632260073CA13 /* Extentions */,
+				A020808523C6328A0073CA13 /* Support */,
+				A020806A23C5CBA50073CA13 /* Info.plist */,
+			);
+			path = GHFollowers;
+			sourceTree = "<group>";
+		};
+		A020808223C631BD0073CA13 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				A020807023C5D9940073CA13 /* SearchVC.swift */,
+				A020807223C5D9E20073CA13 /* FavoritesListVC.swift */,
+				A020807823C61A5A0073CA13 /* FollowerListVC.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		A020808323C631DC0073CA13 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				A020807E23C625520073CA13 /* GFAlertVC.swift */,
+				A020807A23C622520073CA13 /* GFTitleLabel.swift */,
+				A020807C23C623E90073CA13 /* GFBodyLabel.swift */,
+				A020807423C5E1CF0073CA13 /* GFButton.swift */,
+				A020807623C5E4AF0073CA13 /* GFTextField.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		A020808423C632260073CA13 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				A020808023C62E870073CA13 /* UIViewController-Ext.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		A020808523C6328A0073CA13 /* Support */ = {
+			isa = PBXGroup;
+			children = (
 				A020805C23C5CBA30073CA13 /* AppDelegate.swift */,
 				A020805E23C5CBA30073CA13 /* SceneDelegate.swift */,
 				A020806023C5CBA30073CA13 /* ViewController.swift */,
 				A020806523C5CBA50073CA13 /* Assets.xcassets */,
 				A020806723C5CBA50073CA13 /* LaunchScreen.storyboard */,
-				A020806A23C5CBA50073CA13 /* Info.plist */,
-				A020807023C5D9940073CA13 /* SearchVC.swift */,
-				A020807A23C622520073CA13 /* GFTitleLabel.swift */,
-				A020807C23C623E90073CA13 /* GFBodyLabel.swift */,
-				A020807E23C625520073CA13 /* GFAlertVC.swift */,
-				A020808023C62E870073CA13 /* UIViewController-Ext.swift */,
-				A020807823C61A5A0073CA13 /* FollowerListVC.swift */,
-				A020807223C5D9E20073CA13 /* FavoritesListVC.swift */,
-				A020807423C5E1CF0073CA13 /* GFButton.swift */,
-				A020807623C5E4AF0073CA13 /* GFTextField.swift */,
 			);
-			path = GHFollowers;
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
