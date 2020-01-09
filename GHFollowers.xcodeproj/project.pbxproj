@@ -27,6 +27,7 @@
 		A020809223C6AC580073CA13 /* GFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020809123C6AC580073CA13 /* GFError.swift */; };
 		A0ED163323C76106008C4CAD /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ED163223C76106008C4CAD /* FollowerCell.swift */; };
 		A0ED163523C761A1008C4CAD /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ED163423C761A1008C4CAD /* GFAvatarImageView.swift */; };
+		A0ED163723C7C89A008C4CAD /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ED163623C7C89A008C4CAD /* UIHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		A020809123C6AC580073CA13 /* GFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFError.swift; sourceTree = "<group>"; };
 		A0ED163223C76106008C4CAD /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		A0ED163423C761A1008C4CAD /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
+		A0ED163623C7C89A008C4CAD /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 		A020809023C6ABFF0073CA13 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A0ED163623C7C89A008C4CAD /* UIHelper.swift */,
 				A020809123C6AC580073CA13 /* GFError.swift */,
 			);
 			path = Utilities;
@@ -258,6 +261,7 @@
 				A020808123C62E870073CA13 /* UIViewController-Ext.swift in Sources */,
 				A020807923C61A5A0073CA13 /* FollowerListVC.swift in Sources */,
 				A020809223C6AC580073CA13 /* GFError.swift in Sources */,
+				A0ED163723C7C89A008C4CAD /* UIHelper.swift in Sources */,
 				A020808F23C6A37D0073CA13 /* NetworkManager.swift in Sources */,
 				A020807723C5E4AF0073CA13 /* GFTextField.swift in Sources */,
 				A020807D23C623E90073CA13 /* GFBodyLabel.swift in Sources */,
