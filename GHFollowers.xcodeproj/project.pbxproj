@@ -24,7 +24,7 @@
 		A020808823C69EB80073CA13 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020808723C69EB80073CA13 /* Follower.swift */; };
 		A020808A23C6A01E0073CA13 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020808923C6A01E0073CA13 /* User.swift */; };
 		A020808F23C6A37D0073CA13 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020808E23C6A37D0073CA13 /* NetworkManager.swift */; };
-		A020809223C6AC580073CA13 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020809123C6AC580073CA13 /* ErrorMessage.swift */; };
+		A020809223C6AC580073CA13 /* GFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020809123C6AC580073CA13 /* GFError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +47,7 @@
 		A020808723C69EB80073CA13 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		A020808923C6A01E0073CA13 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A020808E23C6A37D0073CA13 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		A020809123C6AC580073CA13 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		A020809123C6AC580073CA13 /* GFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +154,7 @@
 		A020809023C6ABFF0073CA13 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				A020809123C6AC580073CA13 /* ErrorMessage.swift */,
+				A020809123C6AC580073CA13 /* GFError.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -241,7 +241,7 @@
 				A020807B23C622520073CA13 /* GFTitleLabel.swift in Sources */,
 				A020808123C62E870073CA13 /* UIViewController-Ext.swift in Sources */,
 				A020807923C61A5A0073CA13 /* FollowerListVC.swift in Sources */,
-				A020809223C6AC580073CA13 /* ErrorMessage.swift in Sources */,
+				A020809223C6AC580073CA13 /* GFError.swift in Sources */,
 				A020808F23C6A37D0073CA13 /* NetworkManager.swift in Sources */,
 				A020807723C5E4AF0073CA13 /* GFTextField.swift in Sources */,
 				A020807D23C623E90073CA13 /* GFBodyLabel.swift in Sources */,
