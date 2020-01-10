@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "428C8035-BAEE-4468-9B55-F44DEA9A642E"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B7FD19FB-CA74-4645-9DB2-78C8DA3747F5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../GHFollowers/Screens/FollowerListVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "updateData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "088338AE-287A-4D9A-ABF5-20B3B4146929"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../GHFollowers/Screens/FollowerListVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "scrollViewDidEndDragging(_:willDecelerate:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
