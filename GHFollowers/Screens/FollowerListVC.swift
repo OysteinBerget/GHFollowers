@@ -161,7 +161,7 @@ extension FollowerListVC: UISearchResultsUpdating, UISearchBarDelegate {
     
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        isSearching = true
+        isSearching = false
         updateData(on: followers)
     }
 }
