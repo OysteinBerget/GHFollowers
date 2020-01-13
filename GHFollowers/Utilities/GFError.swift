@@ -1,8 +1,8 @@
 //
-//  ErrorMessage.swift
+//  GFError.swift
 //  GHFollowers
 //
-//  Created by Øystein Berget on 09/01/2020.
+//  Created by Øystein Berget on 13/01/2020.
 //  Copyright © 2020 Øystein Berget. All rights reserved.
 //
 
