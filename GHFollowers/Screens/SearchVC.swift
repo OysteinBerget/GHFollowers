@@ -44,6 +44,11 @@ class SearchVC: UIViewController {
             return
         }
         
+        guard usernameTextField.text!.isValidGitHubUsername else {
+            presentGFAlertOnMainTread(title: "Invalid GitHub username", message: "Please enter a valid GitHub username.", buttonTitle: "Ok")
+            return
+        }
+        
         let followerListVC = FollowerListVC()
         followerListVC.username = usernameTextField.text
         followerListVC.title = usernameTextField.text

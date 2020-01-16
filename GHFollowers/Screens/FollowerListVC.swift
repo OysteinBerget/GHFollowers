@@ -131,6 +131,7 @@ extension FollowerListVC: UICollectionViewDelegate {
         print("height = \(height)")
         print("offsetY = \(offsetY)")
         print("offsetY > contentHeight - height  \(offsetY) > \(contentHeight - height) \(offsetY > contentHeight - height)")
+        print("folowers loaded = \(followers.count) - hasMoreFollowers = \(hasMoreFollowers)")
         
         if offsetY > contentHeight - height {
             guard hasMoreFollowers else { return }
