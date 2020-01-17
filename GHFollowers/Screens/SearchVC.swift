@@ -10,12 +10,15 @@ import UIKit
 
 class SearchVC: UIViewController {
     
+    // MARK: - Properies
     let logoImageView = UIImageView()
     let usernameTextField = GFTextField()
     let callToActionButton = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
     
     var isUsernameEntered: Bool { return !usernameTextField.text!.isEmpty }
+    var isValidGitHubLogin: Bool { return usernameTextField.text!.isValidGitHubUsername }
 
+    // MARK: - LifeCyle Method
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,7 +27,6 @@ class SearchVC: UIViewController {
         configureTextField()
         configureCallToActionButton()
         createDismissKeyboardTapGesture()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,29 +35,12 @@ class SearchVC: UIViewController {
      }
      
     
+    // MARK: - Configuration Methods
     func createDismissKeyboardTapGesture() {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
     }
     
-    @objc func pushFollowerListVC() {
-        guard isUsernameEntered else {
-            presentGFAlertOnMainTread(title: "Empty Username", message: "Please enter a username. We need to know who to look for 😀.", buttonTitle: "Ok")
-            return
-        }
-        
-        guard usernameTextField.text!.isValidGitHubUsername else {
-            presentGFAlertOnMainTread(title: "Invalid GitHub username", message: "Please enter a valid GitHub username.", buttonTitle: "Ok")
-            return
-        }
-        
-        let followerListVC = FollowerListVC()
-        followerListVC.username = usernameTextField.text
-        followerListVC.title = usernameTextField.text
-        navigationController?.pushViewController(followerListVC, animated: true)
-    }
-    
-
     
     func configureLogoImageView() {
         view.addSubview(logoImageView)
@@ -75,7 +60,6 @@ class SearchVC: UIViewController {
         view.addSubview(usernameTextField)
         usernameTextField.delegate = self
         
-        
         NSLayoutConstraint.activate([
             usernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),
             usernameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
@@ -89,7 +73,6 @@ class SearchVC: UIViewController {
         view.addSubview(callToActionButton)
         callToActionButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside)
         
-        
         NSLayoutConstraint.activate([
             callToActionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
             callToActionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
@@ -98,13 +81,29 @@ class SearchVC: UIViewController {
         ])
     }
     
-
   
     // MARK: - Navigation
-
+    
+    @objc func pushFollowerListVC() {
+        guard isUsernameEntered else {
+            presentGFAlertOnMainTread(title: "Empty Username", message: "Please enter a username. We need to know who to look for 😀.", buttonTitle: "Ok")
+            return
+        }
+        
+        guard isValidGitHubLogin else {
+            presentGFAlertOnMainTread(title: "Invalid username", message: "Please enter a valid GitHub username.", buttonTitle: "Ok")
+            return
+        }
+        
+        let followerListVC = FollowerListVC()
+        followerListVC.username = usernameTextField.text
+        followerListVC.title = usernameTextField.text
+        navigationController?.pushViewController(followerListVC, animated: true)
+    }
 
 }
 
+// MARK: - Extensions
 extension SearchVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         pushFollowerListVC()
