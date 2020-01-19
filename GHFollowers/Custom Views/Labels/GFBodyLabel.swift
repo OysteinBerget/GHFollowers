@@ -28,13 +28,12 @@ class GFBodyLabel: UILabel {
     }
     
     
-    
     private func configure() {
-        textColor = .secondaryLabel
+        textColor                   = .secondaryLabel
         font = UIFont.preferredFont(forTextStyle: .body)
-        adjustsFontSizeToFitWidth = true
-        minimumScaleFactor = 0.75
-        lineBreakMode = .byWordWrapping
+        adjustsFontSizeToFitWidth   = true
+        minimumScaleFactor          = 0.75
+        lineBreakMode               = .byWordWrapping
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

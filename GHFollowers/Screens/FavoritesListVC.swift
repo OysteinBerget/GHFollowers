@@ -10,8 +10,10 @@ import UIKit
 
 class FavoritesListVC: UIViewController {
     
+    // MARK: - Properies
     var username: String!
 
+    // MARK: - LifeCyle Method
     override func viewDidLoad() {
         super.viewDidLoad()
 

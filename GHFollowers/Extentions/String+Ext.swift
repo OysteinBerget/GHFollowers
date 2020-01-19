@@ -16,6 +16,7 @@ extension String {
         return githubLoginPredicate.evaluate(with: self)
     }
 
+    
     var isValidEmail: Bool {
         let emailFormat         = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPredicate      = NSPredicate(format: "SELF MATCHES %@", emailFormat)
@@ -38,7 +39,6 @@ extension String {
         return numberPredicate.evaluate(with: self)
     }
     
-
 
     func removeWhitespaces() -> String {
         return components(separatedBy: .whitespaces).joined()

@@ -9,7 +9,7 @@
 import UIKit
 
 class FollowerListVC: UIViewController {
-    
+    // MARK: - Properies
     enum Section {
         case main
     }
@@ -24,6 +24,8 @@ class FollowerListVC: UIViewController {
     var collectionView: UICollectionView!
     var datasource: UICollectionViewDiffableDataSource<Section, Follower>!
     
+    
+    // MARK: - LifeCyle Method
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
@@ -41,6 +43,7 @@ class FollowerListVC: UIViewController {
     }
     
     
+    // MARK: - Configuration Methods
     func configureViewController() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -78,6 +81,7 @@ class FollowerListVC: UIViewController {
     }
     
     
+    // MARK: - Data Methods
     func getFollowers(username: String, page: Int) {
         showLoadingView()
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
@@ -112,14 +116,11 @@ class FollowerListVC: UIViewController {
         DispatchQueue.main.async {
             self.datasource.apply(snapshot, animatingDifferences: true)
         }
-        
     }
-    
-    // MARK: - Extentions
-    
 }
 
 
+// MARK: - Extentions
 extension FollowerListVC: UICollectionViewDelegate {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -141,6 +142,7 @@ extension FollowerListVC: UICollectionViewDelegate {
         
     }
     
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let follower = isSearching ? filteredFollowers[indexPath.item] : followers[indexPath.item]
         
