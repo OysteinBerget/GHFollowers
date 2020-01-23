@@ -42,12 +42,11 @@ class NetworkManager {
                         return
                     }
                     completed(.failure(.rateLimitExceeded))
-                    return
                     
                 default:
                     completed(.failure(.invalidResponse))
-                    return
                 }
+                return
             }
             
             guard let data = data else {
@@ -97,12 +96,11 @@ class NetworkManager {
                         return
                     }
                     completed(.failure(.rateLimitExceeded))
-                    return
                     
                 default:
                     completed(.failure(.invalidResponse))
-                    return
                 }
+                return
             }
             
             
