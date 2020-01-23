@@ -28,10 +28,26 @@ class NetworkManager {
                 completed(.failure(.unableToComplete))
                 return
             }
-            
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                  
+            guard let response = response as? HTTPURLResponse else {
                 completed(.failure(.invalidResponse))
                 return
+            }
+            
+            if response.statusCode != 200 {
+                switch response.statusCode {
+                case 403:
+                    guard let _ = response.value(forHTTPHeaderField: "X-RateLimit-Remaining" ) else {
+                        completed(.failure(.accessForbidden))
+                        return
+                    }
+                    completed(.failure(.rateLimitExceeded))
+                    return
+                    
+                default:
+                    completed(.failure(.invalidResponse))
+                    return
+                }
             }
             
             guard let data = data else {
@@ -68,10 +84,27 @@ class NetworkManager {
                 return
             }
             
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            guard let response = response as? HTTPURLResponse else {
                 completed(.failure(.invalidResponse))
                 return
             }
+            
+            if response.statusCode != 200 {
+                switch response.statusCode {
+                case 403:
+                    guard let _ = response.value(forHTTPHeaderField: "X-RateLimit-Remaining" ) else {
+                        completed(.failure(.accessForbidden))
+                        return
+                    }
+                    completed(.failure(.rateLimitExceeded))
+                    return
+                    
+                default:
+                    completed(.failure(.invalidResponse))
+                    return
+                }
+            }
+            
             
             guard let data = data else {
                 completed(.failure(.invalidData))

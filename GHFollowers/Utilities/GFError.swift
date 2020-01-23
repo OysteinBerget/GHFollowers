@@ -13,4 +13,6 @@ enum GFError: String, Error {
     case unableToComplete   = "Unable to complete your request. Please check your internet connection"
     case invalidResponse    = "Invalid response from the server. Please try again."
     case invalidData        = "The data received from the server was invalid. Please try again."
+    case accessForbidden    = "Access forbidden to server."
+    case rateLimitExceeded  = "Access forbidden to server because request rate limit exceeded."
 }
