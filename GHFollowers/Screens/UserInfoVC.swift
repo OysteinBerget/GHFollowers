@@ -11,21 +11,72 @@ import UIKit
 class UserInfoVC: UIViewController {
     
     // MARK: - Properties
-    let headerView = UIView()
+    let headerView  = UIView()
+    let itemViewOne = UIView()
+    let itemViewTwo = UIView()
+    let fotterView  = GFBodyLabel(textAlignment: .center)
+    var itemViews   = [UIView]()
     
     var username: String!
-   
+    
 
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureViewController()
+        layoutUI()
+        getUserInfo()
+    }
+    
+    
+    // MARK: - Configuration Methods
+    func configureViewController() {
         view.backgroundColor = .systemBackground
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
         navigationItem.rightBarButtonItem = doneButton
+    }
+    
+    
+    func layoutUI() {
+        let padding: CGFloat    = 20
+        let itemHeight: CGFloat = 140
         
-        layoutUI()
+        // TODO: - Remove debug colors
+        itemViewOne.backgroundColor = .systemPink
+        itemViewTwo.backgroundColor = .systemBlue
         
+        itemViews = [headerView, itemViewOne, itemViewTwo, fotterView]
+        
+        for itemView in itemViews {
+            view.addSubview(itemView)
+            itemView.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                itemView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+                itemView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding)
+            ])
+        }
+        
+        
+        NSLayoutConstraint.activate([
+            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            headerView.heightAnchor.constraint(equalToConstant: 180),
+            
+            itemViewOne.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
+            itemViewOne.heightAnchor.constraint(equalToConstant: itemHeight),
+            
+            itemViewTwo.topAnchor.constraint(equalTo: itemViewOne.bottomAnchor, constant: padding),
+            itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight),
+            
+            fotterView.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: padding),
+            fotterView.heightAnchor.constraint(equalToConstant: 24)
+        ])
+    }
+    
+    
+    func getUserInfo() {
         guard let username = username else { return }
         
         NetworkManager.shared.getUserInfo(for: username, completed: { [weak self] (result) in
@@ -35,6 +86,7 @@ class UserInfoVC: UIViewController {
             case .success(let user):
                 DispatchQueue.main.async {
                     self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
+                    self.setFotterView(with: user.createdAt)
                 }
                 print(user)
                 
@@ -42,21 +94,6 @@ class UserInfoVC: UIViewController {
                 self.presentGFAlertOnMainTread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
         })
-        
-    }
-    
-    
-    // MARK: - Configuration Methods
-    func layoutUI() {
-        view.addSubview(headerView)
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 180)
-        ])
     }
     
     
@@ -68,8 +105,14 @@ class UserInfoVC: UIViewController {
         
     }
     
-    
-    
+    func setFotterView(with date: Date) {
+        let formatter = DateFormatter()
+        formatter.locale = .current
+        formatter.dateFormat = "MMMM YYYY"
+
+        fotterView.text = "GitHub since \(formatter.string(from: date))"
+    }
+
     
     // MARK: - Navigation Methods
     @objc func dismissVC() {
