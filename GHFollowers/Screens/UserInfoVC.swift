@@ -9,8 +9,8 @@
 import UIKit
 
 protocol UserInfoVCDelegate: class {
-    func didTapGitHubProfile()
-    func didTapGetFollowers()
+    func didTapGitHubProfile(for user: User)
+    func didTapGetFollowers(for user: User)
 }
 
 
@@ -24,6 +24,7 @@ class UserInfoVC: UIViewController {
     var itemViews   = [UIView]()
     
     var username: String!
+    weak var delegate: FollowerListVCDelegate!
     
 
     // MARK: - LifeCycle Methods
@@ -91,7 +92,7 @@ class UserInfoVC: UIViewController {
                 print(user)
                 
             case .failure(let error):
-                self.presentGFAlertOnMainTread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
+                self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
         })
     }
@@ -137,16 +138,23 @@ class UserInfoVC: UIViewController {
 
 // MARK: - Extensions
 extension UserInfoVC: UserInfoVCDelegate {
-    func didTapGitHubProfile() {
-        // Show safari view controller
-        print("GitHub Profile tapped")
+    
+    func didTapGitHubProfile(for user: User) {
+        guard let profileUrl = URL(string: user.htmlUrl) else {
+            presentGFAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid.", buttonTitle: "Ok")
+            return
+        }
+        presentSafariVC(with: profileUrl)
     }
     
-    func didTapGetFollowers() {
-        // Dismiss VC
-        // tell Followers list screen the new user
-        print("Get Followers tapped")
+    
+    func didTapGetFollowers(for user: User) {
+        guard user.followers != 0 else {
+            presentGFAlertOnMainThread(title: "No followers", message: "This user has no followers. What a shame 😞.", buttonTitle: "So sad")
+            return
+        }
+        
+        delegate.didRequestFollowers(for: user.login)
+        dismissVC()
     }
-    
-    
 }

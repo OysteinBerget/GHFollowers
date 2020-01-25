@@ -23,9 +23,10 @@ class GFRepoItemVC: GFItemInfoVC {
         itemInfoViewOne.set(itemInfoType: .repos, withCount: user.publicRepos)
         itemInfoViewTwo.set(itemInfoType: .gists, withCount: user.publicGists)
         actionButton.set(backgroundColor: .systemPurple, title: "GitHub Profile")
-        
-        if user.followers == 0 {
-            actionButton.isEnabled = false
-        }
+    }
+    
+    
+    override func actionButtonTapped() {
+        delegate.didTapGitHubProfile(for: user)
     }
 }
