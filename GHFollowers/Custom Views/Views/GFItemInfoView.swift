@@ -42,7 +42,6 @@ class GFItemInfoView: UIView {
         NSLayoutConstraint.activate([
             symbolImageView.topAnchor.constraint(equalTo: self.topAnchor),
             symbolImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            symbolImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             symbolImageView.widthAnchor.constraint(equalToConstant: 20),
             symbolImageView.heightAnchor.constraint(equalToConstant: 20),
             

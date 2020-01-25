@@ -43,12 +43,6 @@ class UserInfoVC: UIViewController {
         let padding: CGFloat    = 20
         let itemHeight: CGFloat = 140
         
-        // TODO: - Remove debug colors
-        itemViewOne.backgroundColor     = .secondarySystemBackground
-        itemViewTwo.backgroundColor     = .secondarySystemBackground
-        itemViewOne.layer.cornerRadius  = 16
-        itemViewTwo.layer.cornerRadius   = 16
-        
         itemViews = [headerView, itemViewOne, itemViewTwo, footerView]
         
         for itemView in itemViews {
@@ -88,6 +82,8 @@ class UserInfoVC: UIViewController {
             case .success(let user):
                 DispatchQueue.main.async {
                     self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
+                    self.add(childVC: GFRepoItemVC(user: user), to: self.itemViewOne)
+                    self.add(childVC: GFFollowerItemVC(user: user), to: self.itemViewTwo)
                     self.setFotterView(with: user.createdAt)
                 }
                 print(user)
