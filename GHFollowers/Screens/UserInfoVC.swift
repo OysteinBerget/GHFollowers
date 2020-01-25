@@ -14,7 +14,7 @@ class UserInfoVC: UIViewController {
     let headerView  = UIView()
     let itemViewOne = UIView()
     let itemViewTwo = UIView()
-    let fotterView  = GFBodyLabel(textAlignment: .center)
+    let footerView  = GFBodyLabel(textAlignment: .center)
     var itemViews   = [UIView]()
     
     var username: String!
@@ -44,10 +44,12 @@ class UserInfoVC: UIViewController {
         let itemHeight: CGFloat = 140
         
         // TODO: - Remove debug colors
-        itemViewOne.backgroundColor = .systemPink
-        itemViewTwo.backgroundColor = .systemBlue
+        itemViewOne.backgroundColor     = .secondarySystemBackground
+        itemViewTwo.backgroundColor     = .secondarySystemBackground
+        itemViewOne.layer.cornerRadius  = 16
+        itemViewTwo.layer.cornerRadius   = 16
         
-        itemViews = [headerView, itemViewOne, itemViewTwo, fotterView]
+        itemViews = [headerView, itemViewOne, itemViewTwo, footerView]
         
         for itemView in itemViews {
             view.addSubview(itemView)
@@ -70,8 +72,8 @@ class UserInfoVC: UIViewController {
             itemViewTwo.topAnchor.constraint(equalTo: itemViewOne.bottomAnchor, constant: padding),
             itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight),
             
-            fotterView.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: padding),
-            fotterView.heightAnchor.constraint(equalToConstant: 24)
+            footerView.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: padding),
+            footerView.heightAnchor.constraint(equalToConstant: 24)
         ])
     }
     
@@ -110,7 +112,7 @@ class UserInfoVC: UIViewController {
         formatter.locale = .current
         formatter.dateFormat = "MMMM YYYY"
 
-        fotterView.text = "GitHub since \(formatter.string(from: date))"
+        footerView.text = "GitHub since \(formatter.string(from: date))"
     }
 
     
