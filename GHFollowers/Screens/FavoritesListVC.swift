@@ -36,6 +36,7 @@ class FavoritesListVC: UIViewController {
         title                   = "Favorites"
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.prefersLargeTitles = true
+        showEmptyStateView(with: "No Favorites?\nAdd one on the follower screen.", in: view)
     }
     
     
@@ -58,10 +59,11 @@ class FavoritesListVC: UIViewController {
             switch result {
             case .success(let favorites):
                 if favorites.isEmpty {
-                    self.showEmptyStateView(with: "No Favorites?\nAdd one on the follower screen.", in: self.view)
+                    self.tableView.isHidden = true
                 } else {
                     self.favorites = favorites
                     DispatchQueue.main.async {
+                        self.tableView.isHidden = false
                         self.tableView.reloadData()
                         self.view.bringSubviewToFront(self.tableView)
                     }
@@ -108,6 +110,9 @@ extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
         let favorite = favorites[indexPath.row]
         favorites.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .left)
+        if favorites.isEmpty {
+            tableView.isHidden = true
+        }
         
         PersistenceManager.updateWith(favorite: favorite, actionType: .remove) { [weak self] (error) in
             guard let self = self else { return }
