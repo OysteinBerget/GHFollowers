@@ -19,11 +19,12 @@ class FollowerListVC: UIViewController {
     }
     
     var username: String!
-    var followers: [Follower] = []
-    var filteredFollowers = [Follower]()
-    var page = 1
-    var hasMoreFollowers = true
-    var isSearching = false
+    var followers           = [Follower]()
+    var filteredFollowers   = [Follower]()
+    var page                = 1
+    var hasMoreFollowers    = true
+    var isSearching         = false
+    var filterBy            = ""
     
     var collectionView: UICollectionView!
     var datasource: UICollectionViewDiffableDataSource<Section, Follower>!
@@ -106,7 +107,13 @@ class FollowerListVC: UIViewController {
                     DispatchQueue.main.async { self.showEmptyStateView(with: message, in: self.view)}
                 }
                 
-                self.updateData(on: self.followers)
+                if self.isSearching {
+                    self.filteredFollowers = self.followers.filter { $0.login.lowercased().contains(self.filterBy.lowercased()) }
+                    self.updateData(on: self.filteredFollowers)
+                    
+                } else {
+                    self.updateData(on: self.followers)
+                }
                 
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Bad Stuff Happend", message: error.rawValue, buttonTitle: "Ok")
@@ -197,6 +204,7 @@ extension FollowerListVC: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
         isSearching = true
+        filterBy = filter
         filteredFollowers = followers.filter { $0.login.lowercased().contains(filter.lowercased()) }
         updateData(on: filteredFollowers)
     }
@@ -204,6 +212,7 @@ extension FollowerListVC: UISearchResultsUpdating, UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         isSearching = false
+        filterBy    = ""
         updateData(on: followers)
     }
 }
