@@ -53,8 +53,9 @@ class FollowerListVC: UIViewController {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
-        navigationItem.rightBarButtonItem = addButton
+        let addButton   = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        let infoButton  = UIBarButtonItem(image: UIImage(systemName: SFSymbols.info), style: .plain, target: self, action: #selector(shoUserInfo))
+        navigationItem.rightBarButtonItems = [addButton, infoButton]
     }
     
     func configureSearchController() {
@@ -161,6 +162,15 @@ class FollowerListVC: UIViewController {
             }
             
         }
+    }
+    
+    
+    @objc func shoUserInfo() {
+        let destVC = UserInfoVC()
+        destVC.username = username
+        destVC.delegate = self
+        let navController = UINavigationController(rootViewController: destVC)
+        present(navController, animated: true)
     }
 }
 
