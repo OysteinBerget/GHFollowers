@@ -54,7 +54,7 @@ class FollowerListVC: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         let addButton   = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
-        let infoButton  = UIBarButtonItem(image: UIImage(systemName: SFSymbols.info), style: .plain, target: self, action: #selector(shoUserInfo))
+        let infoButton  = UIBarButtonItem(image: UIImage(systemName: SFSymbols.info), style: .plain, target: self, action: #selector(showUserInfo))
         navigationItem.rightBarButtonItems = [addButton, infoButton]
     }
     
@@ -165,7 +165,7 @@ class FollowerListVC: UIViewController {
     }
     
     
-    @objc func shoUserInfo() {
+    @objc func showUserInfo() {
         let destVC = UserInfoVC()
         destVC.username = username
         destVC.delegate = self
