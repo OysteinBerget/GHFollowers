@@ -32,40 +32,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "92"
             endingLineNumber = "92"
-            landmarkName = "getUserInfo(for:completed:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C9221169-5AEC-46DC-B679-F069B500BF4E - 2bf3d34f4292c41c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GHFollowers.NetworkManager.getUserInfo(for: Swift.String, completed: (Swift.Result&lt;GHFollowers.User, GHFollowers.GFError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "GHFollowers"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/berget/Developer/GHFollowers/GHFollowers/Managers/NetworkManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "1104">
-               </Location>
-               <Location
-                  uuid = "C9221169-5AEC-46DC-B679-F069B500BF4E - 2bf3d34f4292c41c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GHFollowers.NetworkManager.getUserInfo(for: Swift.String, completed: (Swift.Result&lt;GHFollowers.User, GHFollowers.GFError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "GHFollowers"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/berget/Developer/GHFollowers/GHFollowers/Managers/NetworkManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "1124">
-               </Location>
-            </Locations>
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
