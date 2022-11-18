@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0079ED829284AF300C147C9 /* GFTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0079ED729284AF300C147C9 /* GFTabBarController.swift */; };
 		A01F0BFB23D9916D00784013 /* GFUserInfoHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01F0BFA23D9916D00784013 /* GFUserInfoHeaderVC.swift */; };
 		A01F0BFD23D991BB00784013 /* GFSecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01F0BFC23D991BB00784013 /* GFSecondaryTitleLabel.swift */; };
 		A01F0BFF23D996D500784013 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01F0BFE23D996D500784013 /* Constants.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A0079ED729284AF300C147C9 /* GFTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTabBarController.swift; sourceTree = "<group>"; };
 		A01F0BFA23D9916D00784013 /* GFUserInfoHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFUserInfoHeaderVC.swift; sourceTree = "<group>"; };
 		A01F0BFC23D991BB00784013 /* GFSecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFSecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		A01F0BFE23D996D500784013 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -95,6 +97,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0079ED629284A2C00C147C9 /* TabBarControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A0079ED729284AF300C147C9 /* GFTabBarController.swift */,
+			);
+			path = TabBarControllers;
+			sourceTree = "<group>";
+		};
 		A01F0C0423DC9C7800784013 /* ItemInfoVCs */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +160,7 @@
 		A020808323C631DC0073CA13 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				A0079ED629284A2C00C147C9 /* TabBarControllers */,
 				A0ED163923C8BED2008C4CAD /* ViewControllers */,
 				A0ED163D23C8BFCB008C4CAD /* Views */,
 				A0ED163823C8BEA9008C4CAD /* Labels */,
@@ -366,6 +377,7 @@
 				A0518D2C23DDC76800B1B9E9 /* PersistenceManager.swift in Sources */,
 				A020805F23C5CBA30073CA13 /* SceneDelegate.swift in Sources */,
 				A01F0BFD23D991BB00784013 /* GFSecondaryTitleLabel.swift in Sources */,
+				A0079ED829284AF300C147C9 /* GFTabBarController.swift in Sources */,
 				A06167EE23CCF9C300F525C9 /* UserInfoVC.swift in Sources */,
 				A020808823C69EB80073CA13 /* Follower.swift in Sources */,
 				A020807B23C622520073CA13 /* GFTitleLabel.swift in Sources */,
